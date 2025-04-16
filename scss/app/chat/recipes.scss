@@ -1,0 +1,54 @@
+@use "sass:color" as color;
+@use "@scss/shared/theme" as *;
+
+div#recipes {
+  position: relative;
+  z-index: 1;
+  width: calc(100% - #{$hug * 4});
+  margin: 0 auto $hug;
+  background: $sc;
+  border-radius: 0 0 $c-radius $c-radius;
+  box-shadow: 0 0 10px 10px $g-shadow;
+  display: flex;
+  overflow: hidden;
+  transition: 0.3s ease-in-out;
+
+  div.recipe-names {
+    width: 40%;
+    padding: $hug;
+
+    button {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 5px $hug;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 700;
+      transition: background 0.2s ease-in-out;
+
+      &:hover {
+        background: rgba(0 0 0 / 5%);
+      }
+
+      &:active,
+      &.active {
+        background: rgba(0 0 0 / 15%);
+      }
+    }
+  }
+
+  div.recipe-description {
+    width: 60%;
+    padding: $hug;
+
+    p {
+      border-radius: $c-radius;
+      padding: $hug;
+      height: 100%;
+      background: color.adjust($sc, $lightness: 10%);
+    }
+  }
+}

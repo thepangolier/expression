@@ -1,0 +1,128 @@
+@use "@scss/shared/theme" as *;
+
+@mixin generic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: calc($c-size * 0.8);
+  margin: 0;
+  padding: 0 calc($hug * 1);
+  border: 2px solid transparent;
+  border-radius: 8px;
+  color: $fc;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background: rgba($pc, 0.1);
+
+  svg {
+    font-size: 18px;
+    position: relative;
+    top: 0;
+    margin: 0 calc($hug * 0.33) 0 0;
+  }
+
+  &:hover {
+    background: rgba($pc, 0.2);
+    color: $fc;
+  }
+
+  &:active,
+  &.active {
+    background: rgba($pc, 0.4);
+    color: $fc;
+  }
+
+  &:disabled,
+  &.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  @media (width <= 600px) {
+    height: calc($c-size * 0.8);
+    padding: 0 calc($hug * 1);
+    border-radius: calc($c-size * 0.4);
+    font-size: 10px;
+  }
+}
+
+@mixin dialog-option {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: calc($c-size * 0.8);
+  margin: 0 0 calc($hug / 3);
+  padding: 0 $hug;
+  border: none;
+  border-radius: $c-radius;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  white-space: nowrap;
+  overflow: auto hidden;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  background: rgba($pc, 0.05);
+
+  &:hover {
+    background: rgba($pc, 0.1);
+  }
+
+  &:active,
+  &.active {
+    background: rgba($pc, 0.2);
+  }
+}
+
+@mixin dialog-select {
+  position: relative;
+  display: block;
+  height: calc($c-size * 2);
+  text-align: left;
+
+  svg.icon-checkmark {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  span {
+    display: block;
+
+    &:nth-child(1) {
+      font-size: 16px;
+    }
+
+    &:nth-child(2) {
+      font-size: 12px;
+    }
+  }
+
+  background: rgba($pc, 0.05);
+
+  &:hover {
+    background: rgba($pc, 0.1);
+  }
+
+  &:active {
+    background: rgba($pc, 0.2);
+  }
+
+  &.active {
+    background: rgba($pc, 0.2);
+
+    svg.icon-checkmark {
+      opacity: 1;
+    }
+  }
+}
