@@ -1,0 +1,52 @@
+@use "@scss/shared/theme" as *;
+@use "@scss/generic/keyframes" as *;
+@use "@scss/generic/gradient" as gradient;
+
+body {
+  @include gradient.background;
+
+  font-family: $font-copy;
+  color: $fc;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden auto;
+}
+
+div.container,
+section.container {
+  width: 100%;
+  max-width: $app-width;
+  margin: auto;
+}
+
+div#not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+
+  p {
+    font-size: 18px;
+    font-weight: 700;
+    color: $pc;
+  }
+}
+
+div.expression-editor {
+  div.bn-container {
+    div.bn-editor {
+      opacity: 0;
+      animation: fade-in 0.3s ease-in-out forwards;
+
+      .bn-block-group .bn-block-group .bn-block-outer:not([data-prev-depth-changed])::before {
+        border-left: none;
+      }
+    }
+  }
+}
+
+svg.icon-spinner {
+  animation: spin 1s linear infinite;
+}

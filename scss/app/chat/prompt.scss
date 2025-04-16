@@ -1,0 +1,121 @@
+@use "@scss/shared/theme" as *;
+@use "@scss/generic/button" as button;
+
+div#prompt {
+  padding-bottom: 10vh;
+
+  form {
+    position: relative;
+    padding: $hug $hug 0 $hug;
+    min-height: 135px;
+    transition: opacity 0.2s ease-in-out;
+    opacity: 0.5;
+    pointer-events: none;
+
+    &.ready {
+      opacity: 1;
+      pointer-events: inherit;
+    }
+
+    div.prompt-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 60px;
+      overflow: hidden;
+      font-size: 24px;
+      color: $pc;
+      transition: height 0.2s ease-in-out;
+    }
+
+    button {
+      @include button.generic;
+
+      & {
+        opacity: 0;
+        animation: fade-in 0.5s ease-in-out forwards;
+        animation-delay: 0.3s;
+      }
+    }
+
+    button.button-select {
+      position: absolute;
+      left: calc($hug * 2.5);
+      bottom: calc($hug * 1);
+    }
+
+    button.button-send {
+      position: absolute;
+      right: calc($hug * 2.5);
+      bottom: calc($hug * 1);
+      width: calc($c-size * 0.8);
+      padding: 0;
+
+      svg {
+        margin: 0;
+      }
+    }
+
+    div.expression-editor {
+      min-height: calc($c-size * 2.2);
+
+      div.bn-container {
+        div.bn-editor {
+          background: $bc;
+          color: $fc;
+          padding: calc($hug * 2);
+          padding-bottom: calc($c-size + $hug * 1.2);
+          border-radius: $c-radius;
+          transition: box-shadow 0.2s ease-in-out;
+
+          &.ProseMirror-focused {
+            box-shadow: 0 0 10px 10px $g-shadow;
+          }
+
+          .bn-block-content[data-is-empty-and-focused]
+            .bn-inline-content:has(> .ProseMirror-trailingBreak:only-child)::before {
+            color: rgba($sc, 0.75);
+            font-style: normal;
+            content: "What's on your mind today?";
+          }
+        }
+
+        .bn-suggestion-menu {
+          background: $bc;
+          color: $fc;
+
+          .bn-suggestion-menu-item {
+            transition: background 0.2s ease-in-out;
+          }
+
+          .bn-suggestion-menu-item[aria-selected="true"],
+          .bn-suggestion-menu-item:hover {
+            background: rgba($sc, 0.1);
+          }
+
+          .bn-mt-suggestion-menu-item-section {
+            background: rgba($sc, 0.25);
+
+            > div {
+              background: rgba($sc, 0.25);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  div.prompt-error {
+    padding: 0 $hug;
+
+    p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: $rc;
+      color: $bc;
+      padding: 10px;
+      border-radius: $c-radius;
+    }
+  }
+}

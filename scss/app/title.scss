@@ -1,0 +1,57 @@
+@use "@scss/shared/theme" as *;
+
+div#title {
+  padding: $hug;
+  overflow: hidden;
+  transition: height 0.2s ease-in-out;
+
+  div.title-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $hug;
+
+    img {
+      border-radius: 50%;
+      margin: 0 $hug 0 0;
+    }
+
+    h1 {
+      font-size: 48px;
+
+      span {
+        position: relative;
+        top: -7px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        background: $pc;
+        color: $bc;
+        font-size: 14px;
+      }
+    }
+
+    @media (width <= 640px) {
+      img {
+        width: 42px;
+        height: 42px;
+        margin: 0 5px 0 0;
+      }
+
+      h1 {
+        font-size: 24px;
+
+        span {
+          display: none;
+        }
+      }
+    }
+  }
+
+  p {
+    text-align: center;
+
+    @media (width <= 640px) {
+      font-size: 12px;
+    }
+  }
+}
