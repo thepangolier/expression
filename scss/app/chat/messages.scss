@@ -1,0 +1,171 @@
+@use "sass:color" as color;
+@use "@scss/shared/theme" as *;
+@use "@scss/shared/generic/gradient" as gradient;
+
+div.message-container {
+  min-height: 25vh;
+  padding: 10vh $hug $hug;
+}
+
+div.message {
+  border-radius: $c-radius;
+  margin: 0 0 $hug;
+  padding: calc($hug * 2);
+  background: $bc-user;
+  font-size: 16px;
+  overflow: auto;
+
+  &.assistant {
+    background: $bc-model;
+  }
+
+  // Message Styling
+  > * {
+    margin: 0 0 $hug;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  h4,
+  h5 {
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  ul,
+  ol {
+    font-size: 16px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: $hug;
+  }
+
+  ul li::before {
+    content: "-";
+    width: 1em; /* Set width for alignment */
+    display: inline-block; /* Display bullets inline with text */
+    color: $fc; /* Custom bullet color */
+    font-weight: bold;
+    font-size: 16px; /* Custom bullet size */
+    margin-left: -1em; /* Adjust margin to align with text */
+  }
+
+  ol {
+    counter-reset: custom-counter;
+    list-style-type: none; /* Remove default numbering */
+    padding-left: $hug; /* Add some padding to align numbers */
+  }
+
+  ol > li {
+    counter-increment: custom-counter; /* Increment custom counter */
+    position: relative; /* Position for custom number display */
+  }
+
+  ol > li::before {
+    content: counter(custom-counter) ". "; /* Custom number format */
+    position: absolute; /* Absolute position for alignment */
+    left: 0; /* Position at start of line */
+    width: calc($hug * 2); /* Set width for alignment */
+    display: inline-block; /* Display numbers inline with text */
+    color: $fc; /* Custom number color */
+    font-weight: bold;
+    margin-left: calc($hug * -2); /* Adjust margin to align with text */
+  }
+
+  ol {
+    counter-reset: custom-counter; /* Initialize counter */
+    ol {
+      counter-reset: custom-counter; /* Reset counter for nested list */
+      list-style-type: none; /* Remove default numbering */
+      padding-left: calc($hug * 1); /* Add some padding to align numbers */
+    }
+
+    ol li::before {
+      content: "•";
+    }
+  }
+
+  ul p,
+  ol p {
+    display: inline; /* Change display to inline */
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+  }
+
+  table {
+    margin-bottom: $hug;
+    text-align: left;
+
+    thead {
+      background: $sc;
+      color: $bc;
+
+      tr th {
+        padding: calc($hug / 3) $hug;
+      }
+    }
+
+    tbody {
+      tr td {
+        padding: calc($hug / 3) $hug;
+      }
+
+      tr:nth-child(odd) {
+        background: rgba(256 256 256 / 20%);
+      }
+    }
+  }
+
+  hr {
+    border-color: $fc;
+    color: $fc;
+  }
+
+  img {
+    width: 100%;
+    max-width: 320px;
+    border-radius: $c-radius;
+  }
+
+  a {
+    color: $fc;
+  }
+
+  pre {
+    padding: $hug;
+    background: $bc;
+    border-radius: $c-radius;
+    overflow: auto;
+    font-family: monospace;
+    font-size: 14px;
+
+    code {
+      background: none;
+    }
+  }
+
+  code {
+    background: $sc;
+    padding: calc($hug / 3);
+    border-radius: $c-radius;
+  }
+}

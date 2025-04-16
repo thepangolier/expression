@@ -1,0 +1,36 @@
+// Fonts
+$font-header: "Figtree", sans-serif;
+$font-copy: "Figtree", sans-serif;
+
+// Core Colors
+$pc: rgb(98 53 32); // Primary Color
+$sc: rgb(209 179 129); // Secondary Color
+$fc: rgb(18 7 1); // Foreground Color
+$bc: rgb(245 234 227); // Background Color
+$bc-user: rgb(224 202 164); // Background Color for User Prompts
+$bc-model: rgb(225 195 144); // Background Color for Model Prompts
+
+// Status Colors
+$gc: rgb(100 194 86); // Green Status Color
+$rc: rgb(194 86 86); // Red Status Color
+
+// Additional Color Styles
+$g-shadow: rgb(113 63 36 / 10%);
+
+@mixin pc-alpha($alpha) {
+  background: rgba($pc, $alpha);
+}
+
+@mixin sc-alpha($alpha) {
+  background: rgba($sc, $alpha);
+}
+
+@mixin sc-border-alpha($alpha) {
+  border: 1px solid rgba($sc, $alpha);
+}
+
+// Dimensions
+$app-width: 768px;
+$hug: 15px;
+$c-size: 42px; // Generic Component Height / Square Size
+$c-radius: 9px; // Generic Component Border Radius
