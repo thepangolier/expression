@@ -1,0 +1,79 @@
+@use "@scss/shared/theme" as *;
+@use "@scss/generic/button" as button;
+
+form {
+  padding: $hug;
+  width: 100%;
+
+  label,
+  p {
+    margin: 0 0 calc($hug / 3);
+  }
+
+  input,
+  select,
+  textarea {
+    margin: 0 0 $hug;
+  }
+
+  button {
+    @include button.generic;
+
+    & {
+      margin: 0 0 0 auto;
+    }
+  }
+}
+
+label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: $pc;
+}
+
+@mixin form-input-style {
+  transition: 0.2s ease-in-out;
+
+  &::placeholder {
+    color: rgba($sc, 0.75);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &:focus {
+    border: 1px solid $sc;
+  }
+}
+
+input {
+  display: block;
+  width: 100%;
+  height: $c-size;
+  border-radius: $c-radius;
+  padding: 0 $hug;
+  outline: none;
+  background: $bc;
+  transition: border 0.2s ease-in-out;
+  border: 1px solid rgba($sc, 0.25);
+
+  @include form-input-style;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  min-height: calc($c-size * 5);
+  border-radius: $c-radius;
+  padding: $hug;
+  resize: none;
+  outline: none;
+  background: $bc;
+  transition: border 0.2s ease-in-out;
+  border: 1px solid rgba($sc, 0.25);
+
+  @include form-input-style;
+}

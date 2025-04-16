@@ -1,0 +1,86 @@
+@use "@scss/shared/theme" as *;
+
+header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: calc($c-size * 1.5);
+  z-index: 100;
+  background: rgba($sc, 25%);
+  backdrop-filter: blur(10px);
+
+  div.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  a.brand {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: $fc;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 0 $hug;
+
+    img {
+      margin: 0 5px 0 0;
+    }
+  }
+
+  nav {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 $hug;
+
+    button {
+      position: relative;
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: $c-size;
+      height: $c-size;
+      border-radius: 50%;
+      transition: 0.2s ease-in-out;
+      cursor: pointer;
+      color: $pc;
+
+      svg {
+        font-size: 24px;
+
+        @media (width <= 640px) {
+          font-size: 21px;
+        }
+      }
+
+      span {
+        position: absolute;
+        left: calc($c-size / 2 - 60px);
+        top: calc(100% + $hug);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 120px;
+        font-size: 12px;
+        font-weight: 700;
+        pointer-events: none;
+        transition: opacity 0.2s ease-in-out;
+        opacity: 0;
+      }
+
+      &:hover {
+        background: rgb(0 0 0 / 5%);
+
+        span {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "name": "@thepangolier/expression",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint . --fix && stylelint 'scss/**/*.scss' --fix",
+    "lint:node": "eslint .",
+    "lint:style": "stylelint 'scss/**/*.scss'"
+  },
+  "dependencies": {
+    "@ai-sdk/google": "1.2.18",
+    "@blocknote/core": "0.31.1",
+    "@blocknote/mantine": "0.31.1",
+    "@blocknote/react": "0.31.1",
+    "ai": "4.3.16",
+    "next": "15.3.3",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-markdown": "10.1.0",
+    "remark-gfm": "4.0.1",
+    "sass": "1.89.1",
+    "zod": "3.25.48"
+  },
+  "devDependencies": {
+    "@eslint/compat": "1.2.9",
+    "@eslint/eslintrc": "3.3.1",
+    "@eslint/js": "9.28.0",
+    "@next/eslint-plugin-next": "15.3.3",
+    "@types/node": "22.15.29",
+    "@types/react": "19.1.6",
+    "@types/react-dom": "19.1.5",
+    "eslint": "9.28.0",
+    "eslint-config-prettier": "10.1.5",
+    "eslint-plugin-jsx-a11y": "6.10.2",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-prettier": "5.4.1",
+    "eslint-plugin-react": "7.37.5",
+    "eslint-plugin-react-hooks": "5.2.0",
+    "eslint-plugin-simple-import-sort": "12.1.1",
+    "jiti": "2.4.2",
+    "prettier": "3.5.3",
+    "stylelint": "16.20.0",
+    "stylelint-config-prettier-scss": "1.0.0",
+    "stylelint-config-standard-scss": "15.0.1",
+    "stylelint-scss": "6.12.0",
+    "typescript": "5.8.3",
+    "typescript-eslint": "8.33.1"
+  }
+}
